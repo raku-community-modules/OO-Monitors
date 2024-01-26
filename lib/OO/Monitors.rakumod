@@ -30,8 +30,8 @@ class MetamodelX::MonitorHOW is Metamodel::ClassHOW {
                 callsame
             }
             else {
-                # Type object method call; delegate (presumably .new or some
-                # such).
+                # Type object method call; delegate (presumably
+                # .new or some such).
                 callsame();
             }
         });
@@ -128,7 +128,8 @@ use OO::Monitors;
 monitor Foo {
     has $.bar
 
-    method frobnicate() { }  # accessed by one thread at a time
+    # accessible by one thread at a time
+    method frobnicate() { }
 }
 
 =end code
@@ -156,7 +157,8 @@ monitor IPFilter {
     has $.blocked = 0;
 
     method should-start-request($ip) {
-        if %!blacklist{$ip} || (%!active{$ip} // 0) == $.limit {
+        if %!blacklist{$ip}
+          || (%!active{$ip} // 0) == $.limit {
             $!blocked++;
             return False;
         }
@@ -185,7 +187,7 @@ a bounded queue.
 
 =begin code :lang<raku>
 
-monitor BoundedQueue is conditioned(< not-full not-empty >) {
+monitor BoundedQueue is conditioned(<not-full not-empty>) {
     has @!tasks;
     has $.limit = die "Must specify a limit";
 
