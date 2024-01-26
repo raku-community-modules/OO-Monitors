@@ -14,7 +14,8 @@ use OO::Monitors;
 monitor Foo {
     has $.bar
 
-    method frobnicate() { }  # accessed by one thread at a time
+    # accessible by one thread at a time
+    method frobnicate() { }
 }
 ```
 
@@ -38,7 +39,8 @@ monitor IPFilter {
     has $.blocked = 0;
 
     method should-start-request($ip) {
-        if %!blacklist{$ip} || (%!active{$ip} // 0) == $.limit {
+        if %!blacklist{$ip}
+          || (%!active{$ip} // 0) == $.limit {
             $!blocked++;
             return False;
         }
@@ -62,7 +64,7 @@ Conditions
 Condition variables are declared with the `conditioned` trait on the monitor. To wait on a condition, use `wait-condition`. To signal that a condition has been met, use `meet-condition`. Here is an example of a bounded queue.
 
 ```raku
-monitor BoundedQueue is conditioned(< not-full not-empty >) {
+monitor BoundedQueue is conditioned(<not-full not-empty>) {
     has @!tasks;
     has $.limit = die "Must specify a limit";
 
