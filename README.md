@@ -103,7 +103,7 @@ Source can be located at: https://github.com/raku-community-modules/OO-Monitors 
 COPYRIGHT AND LICENSE
 =====================
 
-Copyright 2014 - 2023 Jonathan Worthington
+Copyright 2014 - 2021 Jonathan Worthington
 
 Copyright 2024 Raku Community
 
