@@ -16,7 +16,7 @@
   },
   "resources": [
   ],
-  "source-url": "https://github.com/lizmat/OO-Monitors.git",
+  "source-url": "https://github.com/raku-community-modules/OO-Monitors.git",
   "support": {
     "source": "git://github.com/jnthn/oo-monitors.git"
   },

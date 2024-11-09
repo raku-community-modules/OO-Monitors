@@ -1,4 +1,4 @@
-[![Actions Status](https://github.com/lizmat/OO-Monitors/actions/workflows/test.yml/badge.svg)](https://github.com/lizmat/OO-Monitors/actions)
+[![Actions Status](https://github.com/raku-community-modules/OO-Monitors/actions/workflows/linux.yml/badge.svg)](https://github.com/raku-community-modules/OO-Monitors/actions) [![Actions Status](https://github.com/raku-community-modules/OO-Monitors/actions/workflows/macos.yml/badge.svg)](https://github.com/raku-community-modules/OO-Monitors/actions) [![Actions Status](https://github.com/raku-community-modules/OO-Monitors/actions/workflows/windows.yml/badge.svg)](https://github.com/raku-community-modules/OO-Monitors/actions)
 
 NAME
 ====
