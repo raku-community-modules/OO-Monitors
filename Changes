@@ -1,6 +1,8 @@
 Revision history for OO-Monitors
 
 {{$NEXT}}
+
+1.1.4  2025-02-12T14:04:41+01:00
     - Adapt build logic to also allow for the new
       POPULATE method
     - Update copyright year
