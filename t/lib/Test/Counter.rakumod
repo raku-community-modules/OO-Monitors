@@ -17,3 +17,5 @@ monitor Test::Counter {
         die TheExceptionWeExpect.new;
     }
 }
+
+# vim: expandtab shiftwidth=4

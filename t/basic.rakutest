@@ -27,3 +27,5 @@ await do for ^4 {
 pass "Survived running 4 threads using the monitor";
 
 is $cnt.current, 4000, 'Got correct value';
+
+# vim: expandtab shiftwidth=4

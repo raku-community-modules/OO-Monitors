@@ -41,3 +41,5 @@ pass 'After removing one item, blocked add took place';
 
 is $bq.take-task(), "Pet cat", 'Got second item out of queue';
 is $bq.take-task(), "Feed cat", 'Got third item out of queue';
+
+# vim: expandtab shiftwidth=4
