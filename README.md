@@ -58,36 +58,6 @@ monitor IPFilter {
 
 That's about all there is to it. The monitor meta-object enforces mutual exclusion.
 
-Conditions
-----------
-
-Condition variables are declared with the `conditioned` trait on the monitor. To wait on a condition, use `wait-condition`. To signal that a condition has been met, use `meet-condition`. Here is an example of a bounded queue.
-
-```raku
-monitor BoundedQueue is conditioned(<not-full not-empty>) {
-    has @!tasks;
-    has $.limit = die "Must specify a limit";
-
-    method add-task($task) {
-        while @!tasks.elems == $!limit {
-            wait-condition <not-full>;
-        }
-        @!tasks.push($task);
-        meet-condition <not-empty>;
-    }
-
-    method take-task() {
-        until @!tasks {
-            wait-condition <not-empty>;
-        }
-        meet-condition <not-full>;
-        return @!tasks.shift;
-    }
-}
-```
-
-When `wait-condition` is used, the lock is released and the thread blocks until the condition is met by some other thread. By contrast, `meet-condition` just marks a waiting thread as unblocked, but retains the lock until the method is over.
-
 Circular waiting
 ----------------
 

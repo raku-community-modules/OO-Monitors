@@ -63,43 +63,6 @@ monitor IPFilter {
 That's about all there is to it. The monitor meta-object enforces mutual
 exclusion.
 
-=head2 Conditions
-
-Condition variables are declared with the C<conditioned> trait on the
-monitor.  To wait on a condition, use C<wait-condition>. To signal that
-a condition has been met, use C<meet-condition>. Here is an example of
-a bounded queue.
-
-=begin code :lang<raku>
-
-monitor BoundedQueue is conditioned(<not-full not-empty>) {
-    has @!tasks;
-    has $.limit = die "Must specify a limit";
-
-    method add-task($task) {
-        while @!tasks.elems == $!limit {
-            wait-condition <not-full>;
-        }
-        @!tasks.push($task);
-        meet-condition <not-empty>;
-    }
-
-    method take-task() {
-        until @!tasks {
-            wait-condition <not-empty>;
-        }
-        meet-condition <not-full>;
-        return @!tasks.shift;
-    }
-}
-
-=end code
-
-When C<wait-condition> is used, the lock is released and the thread
-blocks until the condition is met by some other thread. By contrast,
-C<meet-condition> just marks a waiting thread as unblocked, but retains
-the lock until the method is over.
-
 =head2 Circular waiting
 
 Monitors are vulnerable to deadlock, if you set up a circular dependency. Keep

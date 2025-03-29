@@ -1,6 +1,10 @@
 Revision history for OO-Monitors
 
 {{$NEXT}}
+    - Remove all features that depend on experimental macros:
+      is conditioned trait, meet-condition, wait-condition.
+      They do not appear to be used in any ecosystem modules,
+      and will break this module when RakuAST is bootstrapped
 
 1.1.4  2025-02-12T14:04:41+01:00
     - Adapt build logic to also allow for the new
