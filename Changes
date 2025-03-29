@@ -1,6 +1,8 @@
 Revision history for OO-Monitors
 
 {{$NEXT}}
+
+1.1.5  2025-03-29T10:19:31+01:00
     - Remove all features that depend on experimental macros:
       is conditioned trait, meet-condition, wait-condition.
       They do not appear to be used in any ecosystem modules,
