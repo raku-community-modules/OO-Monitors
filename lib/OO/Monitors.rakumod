@@ -1,6 +1,5 @@
 class MetamodelX::MonitorHOW is Metamodel::ClassHOW {
     has $!lock-attr;
-    has %!condition-attrs;
 
     method new_type(|) {
         my \type = callsame();
