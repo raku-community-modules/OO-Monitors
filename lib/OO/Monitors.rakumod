@@ -37,14 +37,16 @@ class MetamodelX::MonitorHOW is Metamodel::ClassHOW {
     }
 
     method compose(Mu \type) {
-        if self.method_table(type)<BUILDALL>:exists {
-            self.method_table(type)<BUILDALL>.wrap: -> \SELF, | {
+        my %methods := self.method_table(type);
+
+        if %methods<POPULATE>:exists {
+            %methods<POPULATE>.wrap: -> \SELF, | {
                 $!lock-attr.set_value(SELF, Lock.new);
                 callsame();
             };
         }
-        elsif self.method_table(type)<POPULATE>:exists {
-            self.method_table(type)<POPULATE>.wrap: -> \SELF, | {
+        elsif %methods<BUILDALL>:exists {
+            %methods<BUILDALL>.wrap: -> \SELF, | {
                 $!lock-attr.set_value(SELF, Lock.new);
                 callsame();
             };
