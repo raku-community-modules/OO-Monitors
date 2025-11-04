@@ -7,7 +7,6 @@ OO::Monitors - Objects with mutual exclusion and condition variables
 =head1 SYNOPSIS
 
 =begin code :lang<raku>
-
 use OO::Monitors;
 
 monitor Foo {
@@ -16,7 +15,6 @@ monitor Foo {
     # accessible by one thread at a time
     method frobnicate() { }
 }
-
 =end code
 
 =head1 DESCRIPTION
@@ -32,7 +30,6 @@ in the monitor. Condition variables are also supported.
 A monitor looks like a normal class, but declared with the C<monitor> keyword.
 
 =begin code :lang<raku>
-
 use OO::Monitors;
 
 monitor IPFilter {
@@ -57,7 +54,6 @@ monitor IPFilter {
         %!active{$ip}--;
     }
 }
-
 =end code
 
 That's about all there is to it. The monitor meta-object enforces mutual
