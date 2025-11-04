@@ -37,7 +37,6 @@ class MetamodelX::MonitorHOW is Metamodel::ClassHOW {
     }
 
     method compose(Mu \type) {
-        my &callsame := CORE::<&callsame>; # Workaround for RT #127858
         if self.method_table(type)<BUILDALL>:exists {
             self.method_table(type)<BUILDALL>.wrap: -> \SELF, | {
                 $!lock-attr.set_value(SELF, Lock.new);
