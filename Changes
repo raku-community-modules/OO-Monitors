@@ -1,6 +1,8 @@
 Revision history for OO-Monitors
 
 {{$NEXT}}
+
+1.1.7  2025-11-05T15:02:55+01:00
     - Add support for cloning a monitor without dying because
       the lock (ReentrantMutex REPR) cannot be cloned
 
