@@ -1,8 +1,7 @@
 use Test;
+use OO::Monitors;
 
 plan 1;
-
-use OO::Monitors;
 
 monitor Grid {
     has @.grid;

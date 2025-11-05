@@ -63,6 +63,11 @@ Circular waiting
 
 Monitors are vulnerable to deadlock, if you set up a circular dependency. Keep object graphs involving monitors simple and cycle-free, so far as is possible.
 
+Cloning
+-------
+
+You can clone a monitor. The cloned monitor will have its own lock to prevent further chances of deadlock.
+
 AUTHOR
 ======
 

@@ -1,0 +1,29 @@
+use Test;
+use OO::Monitors;
+
+plan 1;
+
+my $hold = True;
+my $awaited;
+
+monitor Holder {
+    method wait() {
+        sleep .1 while $hold;
+        $awaited = True;
+    }
+
+    method release() {
+        $hold = False;
+    }
+}
+
+my $a = Holder.new;
+my $b = $a.clone;
+
+my $p = start $a.wait;
+$b.release;
+await $p;
+
+ok $awaited, "Did not deadlock because clone had a different lock";
+
+# vim: expandtab shiftwidth=4
